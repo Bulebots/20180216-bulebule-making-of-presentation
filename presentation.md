@@ -2,23 +2,48 @@
 % Clara Casas Castedo & Miguel Sánchez de León Peque
 % 2018-02-16
 
-Introducción
-============
+---
+
+<video src="./videos/bulebule_camera_onboard.mp4" controls muted>
+</video>
+
 
 Micromouse
 ==========
 
+--- 
+
 ![](./figures/maze.jpg)
 
 
-Necesidades de Hardware
-=======================
-
-Diseño de la placa
-==================
-
-Sensores
+Hardware
 ========
+
+---
+
+![](./figures/noedges.jpg){width=50%}
+
+
+Board design
+============
+
+Prototyping
+------------
+
+![](./figures/proto.jpg){width=90%}
+
+
+Schematic
+---------
+
+![](./figures/schematic.png){width=100%}
+
+
+PCB layout
+----------
+
+![](./figures/pcb.jpg){width=100%}
+
 
 Robot physics
 =============
