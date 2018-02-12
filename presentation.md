@@ -229,11 +229,67 @@ Implementation details
 
 - [Green Ye's Futura Project documentation :heart_eyes:](http://micromouseusa.com/?page_id=1342)
 
+Software design
+===============
+
 Required tools
 ==============
 
+Hardware
+--------
+
+- Programmer
+- Soldering station
+- Polimeter
+- Logic analyzer
+- Oscilloscope
+
+Software
+--------
+
+- **C language** - libopencm3, gcc, clang format
+- **Python** - notebooks, scripts, communication
+- **Continuous integration** - github, travis
+- **Reviews & management** - github
+- **Documentation** - doxygen, sphinx
+- **Board design** - upverter
+
+Maze
+----
+
+![](./figures/maze_home.jpg)
+
 Errors, debugging...
 ====================
+
+---
+
+![](./figures/yoda.jpg) 
+
+Eye-opening experience
+---------------------- 
+
+![](./figures/calibration_test.jpg){width=80%} 
+
+---
+
+$$
+y = e^{\frac{a}{x+b}}
+$$
+
+$$
+x = \frac{a}{\ln y} -b
+$$
+
+![](./figures/sensors_manual_calibration.png) 
+
+---
+
+![](./figures/sensors_autom_calibration.jpg){width=70%}  
+
+---
+
+![](./figures/sensor_autom_cal.png)
 
 Costs
 =====
