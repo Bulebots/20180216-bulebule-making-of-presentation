@@ -137,7 +137,7 @@ PID! :+1: :joy:
 
 ![](./figures/control.jpg){width=90%}
 
-Image taken from [micromouseusa.com](http://micromouseusa.com/wp-content/uploads/2014/03/futura-Cover.jpg) ([Futura Project](http://micromouseusa.com/?page_id=1342))
+Image taken from [micromouseusa.com](http://micromouseusa.com/) ([Futura Project](http://micromouseusa.com/?page_id=1342))
 
 Characteristics
 ---------------
@@ -178,6 +178,31 @@ Discrete integration approximation
 
 Maze-solving algorithm
 ======================
+
+Floodfill :mouse:
+-----------------
+
+1. Assume there are no walls
+1. Calculate distances to target
+1. While goal not reached...
+1. Go to the cell that is closest to the target
+1. Update distances
+
+Example
+-------
+
+![](./figures/flood-fill.png){width=100%}
+
+Image taken from [micromouseusa.com](http://micromouseusa.com/) ([Futura Project](http://micromouseusa.com/?page_id=1342))
+
+---
+
+![](./videos/maze-simulator.mp4){width=650 height=650}
+
+Implementation details
+----------------------
+
+- [Green Ye's Futura Project documentation :heart_eyes:](http://micromouseusa.com/?page_id=1342)
 
 Required tools
 ==============
