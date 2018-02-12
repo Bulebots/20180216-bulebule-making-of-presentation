@@ -143,15 +143,25 @@ Current state
 
 ![](./videos/current_state.mp4){width=889 height=500}
 
+Done
+----
+
+- Functional micromouse
+- $0.8 ~ m/s$ (straight)
+- $0.666 ~ m/s$ (turn)
+- $5 ~ m/s^2$
+- Only search speed
+- Flood fill
+
 TODO
 ----
 
 - Gyroscope integration (PCB redesign)
-- Maybe new wheels
 - More complete maze exploration
 - Path selection
 - Fast run
 - Diagonals
+- New wheels (maybe)
 - ~60 issues in GitHub :muscle: :muscle:
 
 Thanks :heart:
