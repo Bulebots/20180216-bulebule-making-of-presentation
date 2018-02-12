@@ -77,25 +77,25 @@ Wheels... but how many?
 
 ![](./figures/2-wheels.jpg){width=80%}
 
-Image taken from [micromouseusa.com](http://micromouseusa.com/wp-content/uploads/2014/03/futura-Cover.jpg).
+Image taken from [micromouseusa.com](http://micromouseusa.com/wp-content/uploads/2014/03/futura-Cover.jpg)
 
 ---
 
 ![](./figures/4-wheels.jpg){width=70%}
 
-Image taken from [micromouseonline.com](http://www.micromouseonline.com/wp/wp-content/uploads/2017/10/Decimus5A.jpg).
+Image taken from [micromouseonline.com](http://www.micromouseonline.com/wp/wp-content/uploads/2017/10/Decimus5A.jpg)
 
 ---
 
 ![](./figures/6-wheels.jpg){width=70%}
 
-Image taken from [micromouseonline.com](http://www.micromouseonline.com/wp/wp-content/uploads/files/CIMG1994-full.jpg).
+Image taken from [micromouseonline.com](http://www.micromouseonline.com/wp/wp-content/uploads/files/CIMG1994-full.jpg)
 
 ---
 
 ![](./figures/8-wheels.jpg){width=70%}
 
-Image taken from [micromouseonline.com](http://www.micromouseonline.com/wp/wp-content/uploads/2015/11/IMG_5761.jpg).
+Image taken from [micromouseonline.com](http://www.micromouseonline.com/wp/wp-content/uploads/2015/11/IMG_5761.jpg)
 
 Better start with 4...
 ----------------------
@@ -123,6 +123,59 @@ CAD designs
 Control
 =======
 
+Approach
+--------
+
+>- Neural networks?
+>- State space control?
+>- ...
+
+PID! :+1: :joy:
+---------------
+
+---
+
+![](./figures/control.jpg){width=90%}
+
+Image taken from [micromouseusa.com](http://micromouseusa.com/wp-content/uploads/2014/03/futura-Cover.jpg) ([Futura Project](http://micromouseusa.com/?page_id=1342))
+
+Characteristics
+---------------
+
+- Positional PD (velocity error is integrated)
+- PI for sensor error
+- [Green Ye's Futura Project documentation :heart_eyes:](http://micromouseusa.com/?page_id=1342)
+
+Speed profile
+-------------
+
+![](./figures/speed-profile.png){width=60%}
+
+Calculating turns
+-----------------
+
+From the motion equations:
+
+$$
+\begin{aligned}
+\dot{x} &= v_m cos \theta \\
+\dot{y} &= v_m sin \theta
+\end{aligned}
+$$
+
+Considering $\dot{w} \equiv cte.$ and $v_m \equiv cte.$:
+
+$$
+\theta = w_0 t + \frac{k}{d} t^2
+$$
+
+Discrete integration approximation
+----------------------------------
+
+![](./figures/dynamic-turns.png){width=40%}
+
+[Notebook in GitHub](https://github.com/Theseus/bulebule/blob/master/scripts/notebooks/dynamic_turns.ipynb)
+
 Maze-solving algorithm
 ======================
 
@@ -134,6 +187,30 @@ Errors, debugging...
 
 Costs
 =====
+
+Very optimistic costs
+---------------------
+
+- Around 60 €
+- Half is just for motors+encoders (second hand)
+- Electronic parts and boards are really cheap (carefully selected)
+
+Realistic costs
+---------------
+
+- Lots
+- Replacements
+- Shipping costs
+- More than 100 €
+- Not counting tools, maze...
+
+And then...
+-----------
+
+![](./figures/double-robot.jpg)
+
+Time... :joy:
+-------------
 
 Next stop: Portugal :tada:
 ==========================
