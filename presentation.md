@@ -24,9 +24,6 @@ Hardware
 ![](./figures/noedges.jpg){width=50%}
 
 
-Board design
-============
-
 Prototyping
 ------------
 
