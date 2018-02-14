@@ -2,16 +2,17 @@
 % Clara Casas Castedo & Miguel Sánchez de León Peque
 % 2018-02-16
 
----
+Introduction
+============
+
+--- 
 
 <video src="./videos/bulebule_camera_onboard.mp4" controls muted>
 </video>
 
 
 Micromouse
-==========
-
---- 
+---------- 
 
 ![](./figures/maze.jpg)
 
@@ -25,7 +26,7 @@ Hardware
 
 
 Prototyping
-------------
+-----------
 
 ![](./figures/proto.jpg){width=90%}
 
