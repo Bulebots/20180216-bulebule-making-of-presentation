@@ -1,4 +1,4 @@
-% Bulebule: *making off* the un robot *micromouse* :mouse:
+% Bulebule: the making of a micromouse robot :mouse:
 % Clara Casas Castedo & Miguel Sánchez de León Peque
 % 2018-02-16
 
@@ -230,12 +230,53 @@ Implementation details
 Software design
 ===============
 
+---
+
+Peripheral | Use 
+--- | --- 
+ADC1 | Phototransistors
+ADC2 | Battery
+TIM1 | Sensors state machine
+TIM2 | Left motor quadrature encoder
+TIM3 | PWM signals for left and right motors
+TIM4 | Right motor quadrature encoder
+USART | Serial, Bluetooth 
+GPIOS | Infrarred emitters, LEDs, buttons
+SYSTICK | Control
+
+Sensors state machine
+---------------------
+
+- 16 KHz trigger
+- Sequentially power on and off 
+- 4 states * 4 sensors
+
+Systick
+-------
+
+- 1 KHz trigger
+- Update ideal speed, encoder, distances
+- Motor control 
+
+Main
+----
+
+- Setup
+- Buttons, debug LEDs
+- Side sensors calibration
+- Algorithm
+- Communication
+- Collision detection
+
+
 Required tools
 ==============
 
 Hardware
 --------
 
+- Battery charger
+- Power supply
 - Programmer
 - Soldering station
 - Polimeter
@@ -283,7 +324,7 @@ $$
 
 ---
 
-![](./figures/sensors_autom_calibration.jpg){width=70%}  
+![](./figures/sensors_autom_calibration.jpg){width=70%} 
 
 ---
 
