@@ -205,17 +205,8 @@ Discrete integration approximation
 Maze-solving algorithm
 ======================
 
-Floodfill :mouse:
------------------
-
-1. Assume there are no walls
-1. Calculate distances to target
-1. While goal not reached...
-1. Go to the cell that is closest to the target
-1. Update distances
-
-Example
--------
+Flood fill :mouse:
+------------------
 
 ![](./figures/flood-fill.png){width=100%}
 
