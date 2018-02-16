@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Clara Casas Castedo &amp; Miguel Sánchez de León Peque">
+  <meta name="dcterms.date" content="2018-02-16">
+  <title>Bulebule: the making of a micromouse robot 🐭</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="revealjs/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="revealjs/css/theme/white.css" id="theme">
+<link rel="stylesheet" href="markdownrevealstyle/custom.css">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'revealjs/css/print/pdf.css' : 'revealjs/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="revealjs/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  <script src="katex/katex.min.js"></script><link rel="stylesheet" href="katex/katex.min.css" /><script type="text/javascript">window.onload = function(){var mathElements = document.getElementsByClassName("math");
+  for (var i=0; i < mathElements.length; i++)
+  {
+   var texText = mathElements[i].firstChild
+   katex.render(texText.data, mathElements[i])
+  }}
+  </script>
+
+<script src="//twemoji.maxcdn.com/2/twemoji.min.js?2.4"></script>
+<script>
+  function addEvent(element, eventName, fn) {
+    if (element.addEventListener)
+      element.addEventListener(eventName, fn, false);
+    else if (element.attachEvent)
+      element.attachEvent('on' + eventName, fn);
+  }
+
+  addEvent(window, 'load', function() {
+    twemoji.parse(document.body, {'folder': 'svg', 'ext': '.svg'});
+  });
+</script>
+
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section data-background="markdownrevealstyle/background.svg">
+  <h1 class="title">Bulebule: the making of a micromouse robot 🐭</h1>
+  <p class="author">Clara Casas Castedo &amp; Miguel Sánchez de León Peque</p>
+  <p class="date">2018-02-16</p>
+</section>
+
+<section data-background="markdownrevealstyle/background.svg"><section id="introduction" class="titleslide slide level1"><h1>Introduction</h1></section><section class="slide level2">
+
+<video src="./videos/bulebule_camera_onboard.mp4" controls muted>
+</video>
+</section><section id="micromouse" class="slide level2">
+<h2>Micromouse</h2>
+<figure>
+<img src="./figures/maze.jpg" />
+</figure>
+</section></section>
+<section data-background="markdownrevealstyle/background.svg"><section id="hardware" class="titleslide slide level1"><h1>Hardware</h1></section><section class="slide level2">
+
+<figure>
+<img src="./figures/noedges.jpg" style="width:50.0%" />
+</figure>
+</section><section id="prototyping" class="slide level2">
+<h2>Prototyping</h2>
+<figure>
+<img src="./figures/proto.jpg" style="width:90.0%" />
+</figure>
+</section><section id="schematic" class="slide level2">
+<h2>Schematic</h2>
+<figure>
+<img src="./figures/schematic.png" style="width:100.0%" />
+</figure>
+</section><section class="slide level2">
+
+<iframe title="Theseus" width="1000" height="650" scrolling="no" frameborder="0" name="Theseus" class="eda_tool" src="https://upverter.com/eda/embed/#tool=pcb,designId=3d82ffa66d538f81,actionId=">
+</iframe>
+</section><section id="soldering" class="slide level2">
+<h2>Soldering</h2>
+<figure>
+<img src="./figures/soldering.JPG" style="width:85.0%" />
+</figure>
+</section></section>
+<section data-background="markdownrevealstyle/background.svg"><section id="robot-physics" class="titleslide slide level1"><h1>Robot physics</h1></section><section id="goals" class="slide level2">
+<h2>Goals</h2>
+<ul>
+<li class="fragment">Straight lines</li>
+<li class="fragment">Turns</li>
+<li class="fragment">👍 😂</li>
+</ul>
+</section><section id="limitations" class="slide level2">
+<h2>Limitations 😅</h2>
+<ul>
+<li>Acceleration</li>
+</ul>
+</section><section id="system" class="slide level2">
+<h2>System</h2>
+<figure>
+<img src="./figures/physical_system.png" />
+</figure>
+</section><section id="angular-velocity" class="slide level2">
+<h2>Angular velocity</h2>
+<p><span class="math display">\displaystyle 
+\begin{aligned}
+\overline{v_2} &amp;= \overline{v_1} + \overline{w} \wedge \overline{r_{21}} \\
+v_2 \overline{u} &amp;= v_1 \overline{u} + (w \overline{u_z}) \wedge (2d \overline{t}) \\
+v_2 &amp;= v_1 + 2dw \\
+\\
+w &amp;= \frac{v_2 - v_1}{2d}
+\end{aligned}
+</span></p>
+</section><section id="linear-velocity" class="slide level2">
+<h2>Linear velocity</h2>
+<p><span class="math display">\displaystyle 
+\begin{aligned}
+\overline{v_M} &amp;= \overline{v_1} + \overline{w} \wedge \overline{r_{M1}} \\
+v_M \overline{u} &amp;= v_1 \overline{u} + (w \overline{u_z}) \wedge (d \overline{t}) \\
+v_M &amp;= v_1 + wd \\
+&amp;= v_1 + \left(\frac{v_2 - v_1}{2d}\right)d \\
+\\
+v_M &amp;= \frac{v_1 + v_2}{2}
+\end{aligned}
+</span></p>
+</section></section>
+<section data-background="markdownrevealstyle/background.svg"><section id="mechanical-design" class="titleslide slide level1"><h1>Mechanical design</h1></section><section id="wheels...-but-how-many" class="slide level2">
+<h2>Wheels... but how many?</h2>
+</section><section class="slide level2">
+
+<figure>
+<img src="./figures/2-wheels.jpg" style="width:80.0%" />
+</figure>
+<p>Image taken from <a href="http://micromouseusa.com/wp-content/uploads/2014/03/futura-Cover.jpg">micromouseusa.com</a></p>
+</section><section class="slide level2">
+
+<figure>
+<img src="./figures/4-wheels.jpg" style="width:70.0%" />
+</figure>
+<p>Image taken from <a href="http://www.micromouseonline.com/wp/wp-content/uploads/2017/10/Decimus5A.jpg">micromouseonline.com</a></p>
+</section><section class="slide level2">
+
+<figure>
+<img src="./figures/6-wheels.jpg" style="width:70.0%" />
+</figure>
+<p>Image taken from <a href="http://www.micromouseonline.com/wp/wp-content/uploads/files/CIMG1994-full.jpg">micromouseonline.com</a></p>
+</section><section class="slide level2">
+
+<figure>
+<img src="./figures/8-wheels.jpg" style="width:70.0%" />
+</figure>
+<p>Image taken from <a href="http://www.micromouseonline.com/wp/wp-content/uploads/2015/11/IMG_5761.jpg">micromouseonline.com</a></p>
+</section><section id="better-start-with-4..." class="slide level2">
+<h2>Better start with 4...</h2>
+<figure>
+<img src="./figures/tetra.svg" style="width:50.0%" />
+</figure>
+<p><a href="https://athena-robots.readthedocs.io/en/latest/tetra.html">More about &quot;tetra&quot; designs</a>.</p>
+</section><section id="cad-designs" class="slide level2">
+<h2>CAD designs</h2>
+<ul>
+<li><a href="https://github.com/Theseus/bulebule/blob/master/3d/mount.py">Motor mount</a></li>
+<li><a href="https://github.com/Theseus/bulebule/blob/master/3d/rim.py">Rim</a></li>
+<li>Both designed with <a href="https://github.com/dcowden/cadquery">CadQuery</a> (Python)</li>
+<li>3D printed (FDM)</li>
+</ul>
+</section><section class="slide level2">
+
+<figure>
+<img src="./figures/tetra_train.jpg" />
+</figure>
+</section><section class="slide level2">
+
+<figure>
+<embed src="./videos/completed_design.mp4" width="889" height="500" />
+</figure>
+</section></section>
+<section data-background="markdownrevealstyle/background.svg"><section id="control" class="titleslide slide level1"><h1>Control</h1></section><section id="approach" class="slide level2">
+<h2>Approach</h2>
+<ul>
+<li class="fragment">Neural networks?</li>
+<li class="fragment">State space control?</li>
+<li class="fragment">...</li>
+</ul>
+</section><section id="pid" class="slide level2">
+<h2>PID! 👍 😂</h2>
+</section><section class="slide level2">
+
+<figure>
+<img src="./figures/control.jpg" style="width:90.0%" />
+</figure>
+<p>Image taken from <a href="http://micromouseusa.com/">micromouseusa.com</a> (<a href="http://micromouseusa.com/?page_id=1342">Futura Project</a>)</p>
+</section><section id="characteristics" class="slide level2">
+<h2>Characteristics</h2>
+<ul>
+<li>Positional PD (velocity error is integrated)</li>
+<li>PI for sensor error</li>
+<li><a href="http://micromouseusa.com/?page_id=1342">Green Ye's Futura Project documentation 😍</a></li>
+</ul>
+</section><section id="speed-profile" class="slide level2">
+<h2>Speed profile</h2>
+<figure>
+<img src="./figures/speed-profile.png" style="width:60.0%" />
+</figure>
+</section><section id="calculating-turns" class="slide level2">
+<h2>Calculating turns</h2>
+<p>From the motion equations:</p>
+<p><span class="math display">\displaystyle 
+\begin{aligned}
+\dot{x} &amp;= v_m cos \theta \\
+\dot{y} &amp;= v_m sin \theta
+\end{aligned}
+</span></p>
+<p>Considering <span class="math inline">\dot{w} \equiv cte.</span> and <span class="math inline">v_m \equiv cte.</span>:</p>
+<p><span class="math display">\displaystyle 
+\theta = w_0 t + \frac{k}{d} t^2
+</span></p>
+</section><section id="discrete-integration-approximation" class="slide level2">
+<h2>Discrete integration approximation</h2>
+<figure>
+<img src="./figures/dynamic-turns.png" style="width:40.0%" />
+</figure>
+<p><a href="https://github.com/Theseus/bulebule/blob/master/scripts/notebooks/dynamic_turns.ipynb">Notebook in GitHub</a></p>
+</section></section>
+<section data-background="markdownrevealstyle/background.svg"><section id="maze-solving-algorithm" class="titleslide slide level1"><h1>Maze-solving algorithm</h1></section><section id="flood-fill" class="slide level2">
+<h2>Flood fill 🐭</h2>
+<figure>
+<img src="./figures/flood-fill.png" style="width:100.0%" />
+</figure>
+<p>Image taken from <a href="http://micromouseusa.com/">micromouseusa.com</a> (<a href="http://micromouseusa.com/?page_id=1342">Futura Project</a>)</p>
+</section><section class="slide level2">
+
+<figure>
+<embed src="./videos/maze-simulator.mp4" width="650" height="650" />
+</figure>
+</section><section id="implementation-details" class="slide level2">
+<h2>Implementation details</h2>
+<ul>
+<li><a href="http://micromouseusa.com/?page_id=1342">Green Ye's Futura Project documentation 😍</a></li>
+</ul>
+</section></section>
+<section data-background="markdownrevealstyle/background.svg"><section id="software-design" class="titleslide slide level1"><h1>Software design</h1></section><section class="slide level2">
+
+<table>
+<thead>
+<tr class="header">
+<th>Peripheral</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ADC1</td>
+<td>Phototransistors</td>
+</tr>
+<tr class="even">
+<td>ADC2</td>
+<td>Battery</td>
+</tr>
+<tr class="odd">
+<td>TIM1</td>
+<td>Sensors state machine</td>
+</tr>
+<tr class="even">
+<td>TIM2</td>
+<td>Left motor quadrature encoder</td>
+</tr>
+<tr class="odd">
+<td>TIM3</td>
+<td>PWM signals for left and right motors</td>
+</tr>
+<tr class="even">
+<td>TIM4</td>
+<td>Right motor quadrature encoder</td>
+</tr>
+<tr class="odd">
+<td>USART</td>
+<td>Serial, Bluetooth</td>
+</tr>
+<tr class="even">
+<td>GPIOS</td>
+<td>Infrarred emitters, LEDs, buttons</td>
+</tr>
+<tr class="odd">
+<td>SYSTICK</td>
+<td>Control</td>
+</tr>
+</tbody>
+</table>
+</section><section id="sensors-state-machine" class="slide level2">
+<h2>Sensors state machine</h2>
+<ul>
+<li>16 KHz trigger</li>
+<li>Sequentially power on and off</li>
+<li>4 states * 4 sensors</li>
+</ul>
+</section><section id="systick" class="slide level2">
+<h2>Systick</h2>
+<ul>
+<li>1 KHz trigger</li>
+<li>Update ideal speed, encoder, distances</li>
+<li>Motor control</li>
+</ul>
+</section><section id="main" class="slide level2">
+<h2>Main</h2>
+<ul>
+<li>Setup</li>
+<li>Buttons, debug LEDs</li>
+<li>Side sensors calibration</li>
+<li>Algorithm</li>
+<li>Communication</li>
+<li>Collision detection</li>
+</ul>
+</section></section>
+<section data-background="markdownrevealstyle/background.svg"><section id="required-tools" class="titleslide slide level1"><h1>Required tools</h1></section><section id="hardware-1" class="slide level2">
+<h2>Hardware</h2>
+<ul>
+<li>Battery charger</li>
+<li>Power supply</li>
+<li>Programmer</li>
+<li>Soldering station</li>
+<li>Polimeter</li>
+<li>Logic analyzer</li>
+<li>Oscilloscope</li>
+</ul>
+</section><section id="software" class="slide level2">
+<h2>Software</h2>
+<ul>
+<li><strong>C language</strong> - libopencm3, gcc, clang format</li>
+<li><strong>Python</strong> - notebooks, scripts, communication</li>
+<li><strong>Continuous integration</strong> - github, travis</li>
+<li><strong>Reviews &amp; management</strong> - github</li>
+<li><strong>Documentation</strong> - doxygen, sphinx</li>
+<li><strong>Board design</strong> - upverter</li>
+</ul>
+</section><section id="maze" class="slide level2">
+<h2>Maze</h2>
+<figure>
+<img src="./figures/maze_home.jpg" />
+</figure>
+</section></section>
+<section data-background="markdownrevealstyle/background.svg"><section id="errors-debugging..." class="titleslide slide level1"><h1>Errors, debugging...</h1></section><section class="slide level2">
+
+<figure>
+<img src="./figures/yoda.jpg" />
+</figure>
+</section><section id="eye-opening-experience" class="slide level2">
+<h2>Eye-opening experience</h2>
+<figure>
+<img src="./figures/calibration_test.jpg" style="width:80.0%" />
+</figure>
+</section><section class="slide level2">
+
+<p><span class="math display">\displaystyle 
+y = e^{\frac{a}{x+b}}
+</span></p>
+<figure>
+<img src="./figures/sensors_manual_calibration.png" />
+</figure>
+<p>More on <a href="http://www.micromouseonline.com/2010/07/07/calibrating-reflective-sensors/">micromouseonline.com</a></p>
+</section><section class="slide level2">
+
+<figure>
+<img src="./figures/sensors_autom_calibration.jpg" style="width:70.0%" />
+</figure>
+</section><section class="slide level2">
+
+<figure>
+<img src="./figures/sensor_autom_cal.png" />
+</figure>
+</section></section>
+<section data-background="markdownrevealstyle/background.svg"><section id="costs" class="titleslide slide level1"><h1>Costs</h1></section><section id="very-optimistic-costs" class="slide level2">
+<h2>Very optimistic costs</h2>
+<ul>
+<li>Around 60 €</li>
+<li>Half is just for motors+encoders (second hand)</li>
+<li>Electronic parts and boards are really cheap (carefully selected)</li>
+</ul>
+</section><section id="realistic-costs" class="slide level2">
+<h2>Realistic costs</h2>
+<ul>
+<li>Lots</li>
+<li>Replacements</li>
+<li>Shipping costs</li>
+<li>More than 100 €</li>
+<li>Not counting tools, maze...</li>
+</ul>
+</section><section id="and-then..." class="slide level2">
+<h2>And then...</h2>
+<figure>
+<img src="./figures/double-robot.jpg" />
+</figure>
+</section><section id="time..." class="slide level2">
+<h2>Time... 😂</h2>
+</section></section>
+<section data-background="markdownrevealstyle/background.svg"><section id="next-stop-portugal" class="titleslide slide level1"><h1>Next stop: Portugal 🎉</h1></section><section id="current-state" class="slide level2">
+<h2>Current state</h2>
+<figure>
+<embed src="./videos/current_state.mp4" width="889" height="500" />
+</figure>
+</section><section id="done" class="slide level2">
+<h2>Done</h2>
+<ul>
+<li>Functional micromouse</li>
+<li><span class="math inline">0.8 ~ m/s</span> (straight)</li>
+<li><span class="math inline">0.666 ~ m/s</span> (turn)</li>
+<li><span class="math inline">5 ~ m/s^2</span></li>
+<li>Only search speed</li>
+<li>Flood fill</li>
+</ul>
+</section><section id="todo" class="slide level2">
+<h2>TODO</h2>
+<ul>
+<li>Gyroscope integration (PCB redesign)</li>
+<li>More complete maze exploration</li>
+<li>Path selection</li>
+<li>Fast run</li>
+<li>Diagonals</li>
+<li>New wheels (maybe)</li>
+<li>~60 issues in GitHub 💪 💪</li>
+</ul>
+</section><section id="thanks" class="slide level2">
+<h2>Thanks ❤️</h2>
+<dl>
+<dt><strong>Green Ye</strong></dt>
+<dd><p>Who shares <a href="http://www.greenye.net/">details about his micromice</a> and posts many useful resources in <a href="http://micromouseusa.com%3E">micromouseusa.com</a></p>
+</dd>
+<dt><strong>Peter Harris</strong></dt>
+<dd><p>Who posts many useful and detailed resources in <a href="http://micromouseonline.com">micromouseonline.com</a></p>
+</dd>
+<dt><strong>Kato-san</strong></dt>
+<dd><p>Who shares <a href="http://seesaawiki.jp/w/robolabo/">details about his micromice</a> and posts some <a href="http://blog.livedoor.jp/robolabo/">useful resources</a></p>
+</dd>
+</dl>
+</section><section id="links" class="slide level2">
+<h2>Links 🔗</h2>
+<ul>
+<li><a href="https://github.com/Theseus/bulebule" class="uri">https://github.com/Theseus/bulebule</a></li>
+<li><a href="https://bulebule.readthedocs.io" class="uri">https://bulebule.readthedocs.io</a></li>
+</ul>
+<figure>
+<img src="./figures/presentation-qr.png" style="width:40.0%" />
+</figure>
+</section></section>
+    </div>
+  </div>
+
+  <script src="revealjs/lib/js/head.min.js"></script>
+  <script src="revealjs/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+        // Display a presentation progress bar
+        progress: true,
+        // Display the page number of the current slide
+        slideNumber: false,
+        // Push each slide change to the browser history
+        history: true,
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+        // Enable the slide overview mode
+        overview: true,
+        // Vertical centering of slides
+        center: true,
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+        // Transition style
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        // Transition speed
+        transitionSpeed: 'default', // default/fast/slow
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'revealjs/plugin/zoom-js/zoom.js', async: true },
+              { src: 'revealjs/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
