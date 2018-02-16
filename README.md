@@ -1,1 +1,1 @@
-# Bulebule: making off the un robot 'micromouse'
+# Bulebule: making of the un robot 'micromouse'

@@ -37,11 +37,14 @@ Schematic
 ![](./figures/schematic.png){width=100%}
 
 
-PCB layout
-----------
+---
 
-![](./figures/pcb.jpg){width=100%}
+<iframe title="Theseus" width="1000" height="650" scrolling="no" frameborder="0" name="Theseus" class="eda_tool" src="https://upverter.com/eda/embed/#tool=pcb,designId=3d82ffa66d538f81,actionId="></iframe>
 
+Soldering
+---------
+
+![](./figures/soldering.JPG){width=85%}
 
 Robot physics
 =============
@@ -316,11 +319,9 @@ $$
 y = e^{\frac{a}{x+b}}
 $$
 
-$$
-x = \frac{a}{\ln y} -b
-$$
-
 ![](./figures/sensors_manual_calibration.png) 
+
+More on [micromouseonline.com](http://www.micromouseonline.com/2010/07/07/calibrating-reflective-sensors/)
 
 ---
 
