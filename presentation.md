@@ -5,14 +5,14 @@
 Introduction
 ============
 
---- 
+---
 
 <video src="./videos/bulebule_camera_onboard.mp4" controls muted>
 </video>
 
 
 Micromouse
----------- 
+----------
 
 ![](./figures/maze.jpg)
 
@@ -226,15 +226,15 @@ Software design
 
 ---
 
-Peripheral | Use 
---- | --- 
+Peripheral | Use
+--- | ---
 ADC1 | Phototransistors
 ADC2 | Battery
 TIM1 | Sensors state machine
 TIM2 | Left motor quadrature encoder
 TIM3 | PWM signals for left and right motors
 TIM4 | Right motor quadrature encoder
-USART | Serial, Bluetooth 
+USART | Serial, Bluetooth
 GPIOS | Infrarred emitters, LEDs, buttons
 SYSTICK | Control
 
@@ -242,7 +242,7 @@ Sensors state machine
 ---------------------
 
 - 16 KHz trigger
-- Sequentially power on and off 
+- Sequentially power on and off
 - 4 states * 4 sensors
 
 Systick
@@ -250,7 +250,7 @@ Systick
 
 - 1 KHz trigger
 - Update ideal speed, encoder, distances
-- Motor control 
+- Motor control
 
 Main
 ----
@@ -297,12 +297,12 @@ Errors, debugging...
 
 ---
 
-![](./figures/yoda.jpg) 
+![](./figures/yoda.jpg)
 
 Eye-opening experience
----------------------- 
+----------------------
 
-![](./figures/calibration_test.jpg){width=80%} 
+![](./figures/calibration_test.jpg){width=80%}
 
 ---
 
@@ -310,13 +310,13 @@ $$
 y = e^{\frac{a}{x+b}}
 $$
 
-![](./figures/sensors_manual_calibration.png) 
+![](./figures/sensors_manual_calibration.png)
 
 More on [micromouseonline.com](http://www.micromouseonline.com/2010/07/07/calibrating-reflective-sensors/)
 
 ---
 
-![](./figures/sensors_autom_calibration.jpg){width=70%} 
+![](./figures/sensors_autom_calibration.jpg){width=70%}
 
 ---
 
